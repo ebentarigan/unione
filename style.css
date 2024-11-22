@@ -1,0 +1,36 @@
+nav {
+    background-color: #000000;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+nav .logo a {
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: back;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav ul li a:hover {
+    color:#FFFFFF;
+}
