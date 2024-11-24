@@ -38,8 +38,11 @@ nav ul li a {
     color: white; /* Warna teks */
     text-decoration: none;
     font-size: 16px;
+    background-color:dark grey
 }
 
 nav ul li a:hover {
     color: #808080; /* Warna hover pink */
 }
+
+
