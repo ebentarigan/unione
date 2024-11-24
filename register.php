@@ -7,7 +7,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-
+<?php
+    include "layout/header.html"
+?>
+<h3>Register Akun</h3>
+<form>
+    <input type="text" placeholder="username" name="username"/>
+    <input type="password" placeholder="password" name="pasword"/>
+    <button type="submit">masuk sekarang</button>
+</form>
+<?php
+    include "layout/footer.html"
+?>
 </body>
 </html>
