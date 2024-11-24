@@ -1,17 +1,10 @@
-<?php
-session_start(); // Mulai sesi terlebih dahulu
+<?php 
+session_start(); // Pastikan session dimulai terlebih dahulu
 
-
-if (!isset($_SESSION['is_login']) || $_SESSION['is_login'] != true) {
-    header("Location: login.php"); // Arahkan ke halaman login
+// Jika tidak ada sesi login, arahkan ke halaman login
+if (!isset($_SESSION["is_login"]) || $_SESSION["is_login"] === false) {
+    header("Location: login.php");
     exit();
-}
-
-if (isset($_POST['logout'])) {
-        session_unset();  // Menghapus semua data session
-        session_destroy(); // Menghancurkan session
-        header("Location: login.php"); // Redirect ke halaman login setelah logout
-        exit();
 }
 ?>
 
