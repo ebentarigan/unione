@@ -7,7 +7,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<?php
+    include "layout/header.html";
 
+?>
 
+<!-- footer -->
+<?php
+    include "layout/footer.html";
+?>
+<!--  -->
 </body>
 </html>
