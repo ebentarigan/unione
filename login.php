@@ -1,8 +1,10 @@
 <?php
 include "db_config.php";
 session_start(); // Pastikan session dimulai terlebih dahulu
-if(isset($_SESSION["is_login"])== false){
-    header("location:dashboard.php");
+
+// Jika sudah login, langsung arahkan ke dashboard
+if (isset($_SESSION["is_login"]) && $_SESSION["is_login"] === true) {
+    header("Location: dashboard.php");
     exit();
 }
 
@@ -16,7 +18,7 @@ if (isset($_POST['login'])) {
     if ($result->num_rows > 0) {
         $data = $result->fetch_assoc();
         $_SESSION['username'] = $data['username'];
-        $_SESSION["is_login"] =true; // Menyimpan nama pengguna ke dalam sesi
+        $_SESSION["is_login"] = true; // Menyimpan nama pengguna ke dalam sesi
         header("Location: dashboard.php"); // Redirect setelah login sukses
         exit();
     } else {
@@ -24,6 +26,7 @@ if (isset($_POST['login'])) {
     }
 }
 ?>
+
 
 
 <!DOCTYPE html>
