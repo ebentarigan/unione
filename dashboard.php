@@ -60,8 +60,8 @@ if (mysqli_num_rows($query) == 0) {
     
     while ($row = mysqli_fetch_assoc($query)) {
         echo "<tr>
-                <td>" . htmlspecialchars($row['judul']) . "</td>
-                <td>" . htmlspecialchars($row['deskripsi']) . "</td>
+                <td>" .htmlspecialchars($row['judul']) . "</td>
+                <td>" .htmlspecialchars($row['deskripsi']) . "</td>
                 <td>" . $row['tanggal_posting'] . "</td>
                 <td>
                     <a href='lowongan/editlowongan.php?id=" . $row['id'] . "'>Edit</a> |
