@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <link rel="stylesheet" href="layout/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-cover bg-center min-h-screen flex items-center justify-center" style="background-color: black;"  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+    <!-- Glass Login Card with Image -->
+    <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-xl shadow-lg p-8 w-full max-w-4xl flex items-center">
+        <!-- Left Side - Image -->
+        <div class="w-1/2 hidden md:block">
+            <img src="img/login-picture.png" alt="Login Illustration" class="rounded-lg">
+        </div>
+        <div class="w-full md:w-1/2 p-4">
+            <h2 class="text-2xl font-bold text-center text-white mb-6">Login</h2>
+
+
+            <form>
+                <!-- Username -->
+                <div class="mb-4">
+                    <label for="username" class="block text-sm font-medium text-gray-200 mb-2">Username</label>
+                    <input type="text" id="username"
+                        class="w-full px-4 py-2 bg-white bg-opacity-20 text-white placeholder-gray-300 border border-white border-opacity-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        placeholder="Enter your username" />
+                </div>
+
+                <!-- Password -->
+                <div class="mb-6">
+                    <label for="password" class="block text-sm font-medium text-gray-200 mb-2">Password</label>
+                    <input type="password" id="password"
+                        class="w-full px-4 py-2 bg-white bg-opacity-20 text-white placeholder-gray-300 border border-white border-opacity-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        placeholder="Enter your password" />
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit"
+                    class="w-full px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    Login
+                </button>
+            </form>
+
+            <!-- Additional Links -->
+            <p class="text-center text-sm text-gray-300 mt-4">
+                Don't have an account? <a href="#" class="text-blue-400 hover:underline">Sign Up</a><br>
+            </p>
+
+            <div class="container mx-auto flex items-center justify-around">
+                <img src="img/google.png" alt="Logo 1" class="h-10" class="w-16 h-16 mr-4">
+                <img src="img/Facebook.png" alt="Logo 2" class="h-10" class="w-16 h-16 mr-4">
+                <img src="img/microsoft.png" alt="Logo 3" class="h-10"  />
+            </div>
+</body>
+
+</html>
