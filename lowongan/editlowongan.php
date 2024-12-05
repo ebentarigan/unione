@@ -1,3 +1,4 @@
+
 <?php
 include "../db_config.php"; // Koneksi sudah ada di db_config.php
 
@@ -52,3 +53,4 @@ if (isset($_POST['submit'])) {
 
     <button type="submit" name="submit">Update Lowongan</button>
 </form>
+?>
