@@ -9,9 +9,9 @@
     <div class="container">
         <h1>Isi Formulir</h1>
         <form method="POST" action="">
-            <label for="name">Course Name:</label>
+            <label for="name">title:</label>
             <input type="text" id="name" name="name" required>
-            
+
             <label for="message">description:</label>
             <textarea id="message" name="message" rows="4" required></textarea>
 
