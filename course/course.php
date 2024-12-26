@@ -3,19 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form to Card</title>
+    <title>unione</title>
     <link rel="stylesheet" href="styles.css">
 </head>
     <div class="container">
         <h1>Isi Formulir</h1>
         <form method="POST" action="">
-            <label for="name">Nama:</label>
+            <label for="name">Course Name:</label>
             <input type="text" id="name" name="name" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Pesan:</label>
+            
+            <label for="message">description:</label>
             <textarea id="message" name="message" rows="4" required></textarea>
 
             <button type="submit">Submit</button>
