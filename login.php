@@ -9,26 +9,35 @@ if (isset($_SESSION["is_login"]) && $_SESSION["is_login"] === true) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login'])) {
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Verifikasi login dengan prepared statement
-    $stmt = $db->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
-    $stmt->bind_param("ss", $username, $password);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    // Verifikasi login dengan email menggunakan prepared statement
+    $stmt = $db->prepare("SELECT * FROM users WHERE email = ?");
+    if ($stmt) {
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-    if ($result->num_rows > 0) {
-        $data = $result->fetch_assoc();
-        $_SESSION['username'] = $data['username'];
-        $_SESSION["is_login"] = true;
-        header("Location: dashboard.php"); // Redirect setelah login sukses
-        exit();
+        if ($result->num_rows > 0) {
+            $data = $result->fetch_assoc();
+            // Verifikasi password
+            if (password_verify($password, $data['password'])) {
+                $_SESSION['email'] = $data['email'];
+                $_SESSION['username'] = $data['username']; // Jika ingin menampilkan username pengguna
+                $_SESSION["is_login"] = true;
+                header("Location: dashboard.php");
+                exit();
+            } else {
+                $error_message = "Password salah.";
+            }
+        } else {
+            $error_message = "Email tidak ditemukan.";
+        }
+        $stmt->close();
     } else {
-        $error_message = "Username atau password salah.";
+        die("Terjadi kesalahan pada query: " . $db->error);
     }
-
-    $stmt->close();
 }
 ?>
 
@@ -61,12 +70,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login'])) {
             <?php endif; ?>
 
             <form action="" method="POST">
-                <!-- Username -->
+                <!-- Email -->
                 <div class="mb-4">
-                    <label for="username" class="block text-sm font-medium text-gray-200 mb-2">Username</label>
-                    <input type="text" name="username" id="username"
+                    <label for="email" class="block text-sm font-medium text-gray-200 mb-2">Email</label>
+                    <input type="email" name="email" id="email"
                         class="w-full px-4 py-2 bg-white bg-opacity-20 text-white placeholder-gray-300 border border-white border-opacity-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder="Enter your username" required />
+                        placeholder="Enter your email" required />
                 </div>
 
                 <!-- Password -->
