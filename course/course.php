@@ -35,15 +35,6 @@ $courses = $db->query($sql);
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 
-    <div class="container">
-        <h1>Isi Formulir</h1>
-        <form method="POST" action="">
-            <label for="name">title:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="message">description:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-
 
 <body class="bg-white">
 
@@ -54,11 +45,9 @@ $courses = $db->query($sql);
                 <img src="../img/logoputihtest.png" alt="Logo Website" width="100" />
             </div>
             <div class="flex items-center space-x-2 flex-grow ml-6 max-w-full">
-                <input
-                    type="search"
+                <input type="search"
                     class="p-2 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Search..."
-                />
+                    placeholder="Search..." />
                 <div>
                     <button class="p-2 text-white rounded-full hover:bg-blue-600 transition duration-200">
                         <i class="ri-search-line text-white"></i>
@@ -141,17 +130,32 @@ $courses = $db->query($sql);
         updateSlide();
     </script>
 
+<!-- Tombol Add Course dan Judul -->
+<?php if ($role === 'trainers'): ?>
+<h1 class="text-2xl font-bold flex items-center space-x-4 mt-4 ml-6 m">Daftar Kursus
+    <a href="create_course.php">
+        <button
+            class="bg-green-500 text-white px-4 py-2 rounded text-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 mx-9">
+            Tambah Kursus
+        </button>
+    </a>
+</h1>
+<?php endif; ?>
+
+
     <!-- Course Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
-        <?php while ($row = $courses->fetch_assoc()) : ?>
+        <?php while ($row = $courses->fetch_assoc()): ?>
             <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
                 <!-- Gambar Utama -->
-                <img class="w-full" src="https://via.placeholder.com/400x200" alt="Card image" sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw">
+                <img class="w-full" src="https://via.placeholder.com/400x200" alt="Card image"
+                    sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw">
 
                 <div class="px-6 py-4">
                     <!-- Informasi Profile dan Title -->
                     <div class="flex items-center space-x-3">
-                        <img class="w-10 h-10 rounded-full object-cover" src="https://via.placeholder.com/100" alt="Profile picture">
+                        <img class="w-10 h-10 rounded-full object-cover" src="https://via.placeholder.com/100"
+                            alt="Profile picture">
                         <h2 class="font-bold text-xl"><?= htmlspecialchars($row['title']) ?></h2>
                     </div>
                     <!-- Deskripsi -->
@@ -161,13 +165,17 @@ $courses = $db->query($sql);
                 <div class="px-6 pt-4 pb-2 flex justify-between items-center">
                     <!-- Tombol -->
                     <a href="course-detail.php?id=<?= $row['course_id'] ?>">
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Cek sekarang</button>
+                        <button
+                            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Cek
+                            sekarang</button>
                     </a>
                     <!-- Opsi Edit/Delete untuk Trainers -->
-                    <?php if ($role === 'trainers') : ?>
+                    <?php if ($role === 'trainers'): ?>
                         <div class="flex space-x-2">
-                            <a href="edit.php?id=<?= $row['course_id'] ?>" class="text-blue-500 hover:underline">Edit</a>
-                            <a href="delete.php?id=<?= $row['course_id'] ?>" class="text-red-500 hover:underline" onclick="return confirm('Are you sure?')">Delete</a>
+                            <a href="update_course.php?id=<?= $row['course_id'] ?>"
+                                class="text-blue-500 hover:underline">Edit</a>
+                            <a href="delete_course.php?id=<?= $row['course_id'] ?>" class="text-red-500 hover:underline"
+                                onclick="return confirm('Are you sure?')">Delete</a>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -176,4 +184,5 @@ $courses = $db->query($sql);
     </div>
 
 </body>
+
 </html>

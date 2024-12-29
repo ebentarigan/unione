@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 29, 2024 at 06:18 PM
+-- Generation Time: Dec 29, 2024 at 09:30 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -66,9 +66,18 @@ CREATE TABLE `course` (
   `description` text DEFAULT NULL,
   `status` varchar(50) DEFAULT NULL,
   `photo` varchar(255) DEFAULT NULL,
+  `course_video` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `course`
+--
+
+INSERT INTO `course` (`course_id`, `id_user`, `title`, `category`, `description`, `status`, `photo`, `course_video`, `created_at`, `updated_at`) VALUES
+(1, 14, 'Mastering Web Development  haha', 'Technology', 'Learn full-stack web development including HTML, CSS, JavaScript, and PHP.', 'active', 'web_development.jpg', NULL, '2024-12-30 02:09:57', '2024-12-30 02:09:57'),
+(2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-12-30 03:24:04', '2024-12-30 03:24:04');
 
 -- --------------------------------------------------------
 
@@ -115,6 +124,25 @@ CREATE TABLE `users` (
   `role` enum('customers','admin','trainers','recruiters') NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id_user`, `email`, `username`, `password`, `role`, `created_at`) VALUES
+(1, 'test1@unione.com', 'test1', '$2y$10$sV/NTwPlktNbblqYpsIiEuLzEBF1twhoP35sVAPSjoKXVIkS63ZBK', 'customers', '2024-12-29 17:25:54'),
+(3, 'customer1@unione.com', 'Customer1', '$2y$10$5Yrb.ieGdRZ7yqQpVoTZc.ChyMmPVbiHwepRMmk3j7l.nGxjA2CO6', '', '2024-12-29 17:42:26'),
+(4, 'customer2@unione.com', 'Customer2', '$2y$10$F4R6QhfSCAnxM9/JVTvl5eQ86x9rTk9mTBbTK3PYtP1d6Qikh1PH6', '', '2024-12-29 17:43:16'),
+(6, 'customer3@unione.com', 'test2', '$2y$10$WM4iPOFm5clG70caCDuwROpEGnI7ujcQzWTItwnztAaKITE.TkDoe', '', '2024-12-29 17:51:22'),
+(7, 'recruiter1@unione.com', 'test3', '$2y$10$7ozTDouSOSRQr7xkfpxUjutdxMY1R.2qyrxggZXNgIyIviHjh4nm2', '', '2024-12-29 18:17:42'),
+(8, 'recruiter2@test.com', 'recruiter2', '$2y$10$/m3gK3O4X7bbHV48NLRnve5aPDoYbVdIwWAOFYebJmzIUti6dnTy.', '', '2024-12-29 18:21:33'),
+(9, 'test3@unione.com', 'test5', '$2y$10$8DLhoDZgfFENRzMd98TWHO4Nk8ty8KlMZccGZdeCQMDuBRZBhvwRK', '', '2024-12-29 18:26:06'),
+(10, 'haha@gmail.com', 'haha', '$2y$10$H4gXsUkPvlhC.MW7A7vzye18i4Jo2fTp9IYK5RfUSA1FZ0ncsbcfW', 'recruiters', '2024-12-29 18:36:36'),
+(11, 'hehe@gmail.com', 'hehe', '$2y$10$NizNUab5iTIktUPI8NAki.dqDV70tf8ljNe44P6FK2vXJZ47VDwmy', '', '2024-12-29 18:38:55'),
+(12, 'hoho@gmail.com', 'hoho', '$2y$10$DZJfV8SiOjp33AMoEl31peeeVrIE86LZ9aJ0RVTMIMYAwJKC2kyXS', 'recruiters', '2024-12-29 18:53:25'),
+(13, 'hoho1@gmail.com', 'hahahhahahha', '$2y$10$oY3GpiyYQOFadIhiNtF9jeD/7JMCLUvvB5hbrqa6dXyqsnXTKCee2', 'trainers', '2024-12-29 18:53:51'),
+(14, 'test1@gmail.com', 'budi', '$2y$10$BvX5maX7XxKmIC7sOxj/QeuG.TKkziyjqBc5lqnSw9YKy1z/VQHm.', 'trainers', '2024-12-29 18:54:59'),
+(15, 'eben@gmail.com', 'eben', '$2y$10$sF5dc4VHZpUJdes6MPRcBuhGFen.Mmpfjb6pI6VZNMrJLD4vWgpom', 'customers', '2024-12-29 19:41:11');
 
 --
 -- Indexes for dumped tables
@@ -183,7 +211,7 @@ ALTER TABLE `connections`
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `jobs`
@@ -201,7 +229,7 @@ ALTER TABLE `profiles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
