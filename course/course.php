@@ -164,7 +164,7 @@ $courses = $db->query($sql);
 
                 <div class="px-6 pt-4 pb-2 flex justify-between items-center">
                     <!-- Tombol -->
-                    <a href="course-detail.php?id=<?= $row['course_id'] ?>">
+                    <a href="course-video.php?id=<?= $row['course_id'] ?>">
                         <button
                             class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Cek
                             sekarang</button>
